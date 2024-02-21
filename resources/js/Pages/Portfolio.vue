@@ -1,6 +1,6 @@
 <template>
     <v-card :class="slide_class">
-        <p class="text-center">Olá {{ name }} , seja bem vindo portfolio!</p>
+        <p class="text-center">Olá {{ name }} , portfolio!</p>
     </v-card>
 </template>
 

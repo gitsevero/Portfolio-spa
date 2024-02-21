@@ -1,7 +1,7 @@
 <template>
     <v-card :class="slide_class">
         <p class="text-center">
-            Olá {{ this.$store.state.name }} , seja bem ssedex!
+            Olá {{ this.$store.state.name }} , seja bem about!
         </p>
     </v-card>
 </template>
