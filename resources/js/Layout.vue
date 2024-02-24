@@ -1,7 +1,6 @@
 <template>
-    <v-container>
-        <slot />
-    </v-container>
+    <slot />
+
     <v-btn
         class="header-model"
         :color="lastColor"

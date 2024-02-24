@@ -151,3 +151,15 @@
         opacity: 0;
     }
 }
+.v-bottom-navigation.v-bottom-navigation--shift.v-bottom-navigation--density-default {
+    width: unset !important;
+    left: unset !important;
+    border-radius: 30px;
+}
+
+.v-layout.overflow-visible {
+    justify-content: center;
+}
+.v-bottom-navigation.v-bottom-navigation--active.v-bottom-navigation--shift.v-bottom-navigation--density-default {
+    bottom: 5px !important;
+}
