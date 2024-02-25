@@ -1,5 +1,9 @@
 <template>
-    <v-app :class="slide_class" style="max-height: 96vh" id="inspire">
+    <v-app
+        :class="slide_class + '  bg-grey-lighten-3'"
+        style="max-height: 100vh"
+        id="inspire"
+    >
         <Carousel
             :autoplay="2000"
             :wrap-around="true"
@@ -85,7 +89,9 @@ export default {
 </script>
 <style>
 .carousel {
-    margin: 1rem;
+    margin-top: 1rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
 }
 .v-row {
     max-height: 33%;
