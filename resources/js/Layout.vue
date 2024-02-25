@@ -157,48 +157,6 @@ export default {
     mounted() {
         this.value = this.$root.layoutData.navButtonCollow;
         this.quantidade_abas -= 1;
-        var self = this; // Salva uma referência ao componente Vue
-
-        document.addEventListener("DOMContentLoaded", function () {
-            var conteudo = document.getElementById("app");
-            var startX;
-
-            conteudo.addEventListener("mousedown", function (event) {
-                startX = event.clientX;
-            });
-
-            conteudo.addEventListener("mouseup", function (event) {
-                var endX = event.clientX;
-                var diffX = endX - startX;
-                self.lastButton = self.$root.layoutData.navButtonCollow;
-                self.index = self.value;
-                if (diffX < -50) {
-                    if (self.index < self.quantidade_abas) {
-                        self.index += 1;
-                        self.clicked = false;
-                        setTimeout(() => {
-                            self.clickLink(self.index);
-                            self.$refs["Button" + self.index].$el.click();
-                        }, 50);
-                        setTimeout(() => {
-                            self.clicked = true;
-                        }, 100);
-                    }
-                } else if (diffX > 50) {
-                    if (self.index > 0) {
-                        self.index -= 1;
-                        self.clicked = false;
-                        setTimeout(() => {
-                            self.clickLink(self.index);
-                            self.$refs["Button" + self.index].$el.click();
-                        }, 50);
-                        setTimeout(() => {
-                            self.clicked = true;
-                        }, 100);
-                    }
-                }
-            });
-        });
 
         this.detectaScrollDoMouse((scrollY) => {
             this.lastButton = this.$root.layoutData.navButtonCollow;
