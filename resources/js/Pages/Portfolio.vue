@@ -1,41 +1,41 @@
 <template>
-    <v-app
-        :class="slide_class + '  bg-grey-lighten-3'"
-        style="max-height: 100vh"
-        id="inspire"
-    >
-        <Carousel
-            :autoplay="2000"
-            :wrap-around="true"
-            v-bind="settings"
-            :breakpoints="breakpoints"
-        >
-            <Slide v-for="slide in 10" :key="slide">
-                <v-col style="min-width: 100%" cols="3">
-                    <ProjectCard />
-                </v-col>
-            </Slide>
+    <v-app :class="slide_class" style="max-height: 96vh" id="inspire">
+        <v-main class="bg-grey-lighten-3">
+            <v-container
+                ><Carousel
+                    :autoplay="2000"
+                    :wrap-around="true"
+                    v-bind="settings"
+                    :breakpoints="breakpoints"
+                >
+                    <Slide v-for="slide in 10" :key="slide">
+                        <v-col style="min-width: 100%" cols="3">
+                            <ProjectCard />
+                        </v-col>
+                    </Slide>
 
-            <template #addons>
-                <Navigation />
-            </template>
-        </Carousel>
-        <Carousel
-            :autoplay="-2000"
-            :wrap-around="true"
-            v-bind="settings"
-            :breakpoints="breakpoints"
-        >
-            <Slide v-for="slide in 10" :key="slide">
-                <v-col style="min-width: 100%" cols="3">
-                    <ProjectCard />
-                </v-col>
-            </Slide>
+                    <template #addons>
+                        <Navigation />
+                    </template>
+                </Carousel>
+                <Carousel
+                    :autoplay="-2000"
+                    :wrap-around="true"
+                    v-bind="settings"
+                    :breakpoints="breakpoints"
+                >
+                    <Slide v-for="slide in 10" :key="slide">
+                        <v-col style="min-width: 100%" cols="3">
+                            <ProjectCard />
+                        </v-col>
+                    </Slide>
 
-            <template #addons>
-                <Navigation />
-            </template>
-        </Carousel>
+                    <template #addons>
+                        <Navigation />
+                    </template>
+                </Carousel>
+            </v-container>
+        </v-main>
     </v-app>
 </template>
 <script>
