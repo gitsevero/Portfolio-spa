@@ -3,7 +3,7 @@
         <v-main class="bg-grey-lighten-3">
             <v-container
                 ><Carousel
-                    :autoplay="2000"
+                    :autoplay="this.$store.state.AutoPlay"
                     :wrap-around="true"
                     v-bind="settings"
                     :breakpoints="breakpoints"
@@ -19,7 +19,6 @@
                     </template>
                 </Carousel>
                 <Carousel
-                    :autoplay="-2000"
                     :wrap-around="true"
                     v-bind="settings"
                     :breakpoints="breakpoints"
@@ -52,7 +51,6 @@ export default {
     },
     data() {
         return {
-            // carousel settings
             settings: {
                 itemsToShow: 1,
                 snapAlign: "center",
