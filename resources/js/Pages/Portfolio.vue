@@ -1,41 +1,71 @@
 <template>
     <v-app :class="slide_class" style="max-height: 96vh" id="inspire">
-        <v-main class="bg-grey-lighten-3">
-            <v-container>
-                <v-row>
-                    <v-col cols="12" md="2">
-                        <v-sheet rounded="lg" min-height="268">
-                            <!--  -->
-                        </v-sheet>
-                    </v-col>
+        <Carousel
+            :autoplay="2000"
+            :wrap-around="true"
+            v-bind="settings"
+            :breakpoints="breakpoints"
+        >
+            <Slide v-for="slide in 10" :key="slide">
+                <v-col style="min-width: 100%" cols="3">
+                    <ProjectCard />
+                </v-col>
+            </Slide>
 
-                    <v-col cols="12" md="8">
-                        <v-sheet min-height="70vh" rounded="lg">
-                            <!--  -->
-                        </v-sheet>
-                    </v-col>
+            <template #addons>
+                <Navigation />
+            </template>
+        </Carousel>
+        <Carousel
+            :autoplay="-2000"
+            :wrap-around="true"
+            v-bind="settings"
+            :breakpoints="breakpoints"
+        >
+            <Slide v-for="slide in 10" :key="slide">
+                <v-col style="min-width: 100%" cols="3">
+                    <ProjectCard />
+                </v-col>
+            </Slide>
 
-                    <v-col cols="12" md="2">
-                        <v-sheet rounded="lg" min-height="268">
-                            <!--  -->
-                        </v-sheet>
-                    </v-col>
-                </v-row>
-            </v-container>
-        </v-main>
+            <template #addons>
+                <Navigation />
+            </template>
+        </Carousel>
     </v-app>
 </template>
 <script>
+import { Carousel, Navigation, Slide } from "vue3-carousel";
+import "vue3-carousel/dist/carousel.css";
 import Layout from "../Layout.vue";
-
+import ProjectCard from "../components/ProjectCard.vue";
 export default {
     layout: Layout,
+    components: { ProjectCard, Carousel, Slide, Navigation },
     props: {
         name: String,
         lastButton: String,
     },
     data() {
         return {
+            // carousel settings
+            settings: {
+                itemsToShow: 1,
+                snapAlign: "center",
+            },
+            // breakpoints are mobile first
+            // any settings not specified will fallback to the carousel settings
+            breakpoints: {
+                700: {
+                    itemsToShow: 3.5,
+                    snapAlign: "center",
+                },
+                // 1024 and up
+                1024: {
+                    itemsToShow: 4,
+                    snapAlign: "start",
+                },
+            },
             slide_class: "",
             layoutData: {
                 navButtonCollow: 3,
@@ -53,3 +83,11 @@ export default {
     },
 };
 </script>
+<style>
+.carousel {
+    margin: 1rem;
+}
+.v-row {
+    max-height: 33%;
+}
+</style>
